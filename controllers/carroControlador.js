@@ -3,6 +3,7 @@ const {buscarInfoCarros}=require('../services/carroServicio.js');
 const {registrarIngresoCarro}=require('../services/carroServicio.js');
 const {registrarSalidaCarro}=require('../services/carroServicio.js');
 const {editarInfoParqueadero}=require('../services/parqueaderoServicio.js');
+const {editarInfoParqueaderoSalida} = require("../services/parqueaderoServicio");
 
 const { request,response }=require('express');
 
@@ -90,9 +91,11 @@ async function retirarCarro(peticion=request, respuesta=response){
     try{
 
         //Llamo al servicio para traer la info
+        const actualizoParqueadero= await editarInfoParqueaderoSalida(160)
         const carroRetirado= await registrarSalidaCarro(id,datosCarro)
         respuesta.status(200).json({  
-            estado:true,
+            estado:true, 
+            actualizoParqueadero: actualizoParqueadero,
             mensaje:carroRetirado
         })
 

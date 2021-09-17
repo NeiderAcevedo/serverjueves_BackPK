@@ -1,6 +1,7 @@
 const {buscarInfoParqueadero}=require('../services/parqueaderoServicio.js');
 const { request,response }=require('express');
 
+
 async function buscarParqueadero(peticion=request, respuesta=response){
 
     let id=peticion.params.id

@@ -19,9 +19,23 @@ async function editarInfoParqueadero(id){
 
 }
 
+async function editarInfoParqueaderoSalida(id){
+
+    let parqueaderoInfo=await Parqueadero.findByPk(id);
+
+    let cambioDatos={
+        disponibles:parqueaderoInfo.disponibles+1,
+        reservados:parqueaderoInfo.reservados-1
+    }
+
+    return await parqueaderoInfo.update(cambioDatos)
+
+}
+
 
 
 module.exports={
     buscarInfoParqueadero,
-    editarInfoParqueadero
+    editarInfoParqueadero,
+    editarInfoParqueaderoSalida
 }

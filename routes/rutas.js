@@ -14,16 +14,16 @@ const {retirarCarro}=require('../controllers/carroControlador.js')
 rutas.get('/IS/V1/parqueaderos/:id',buscarParqueadero)
 
 //Ruta para buscar la info de Todos los carros
-rutas.get('/IS/V1/carros/',buscarCarros)
+rutas.get('/IS/V1/carros/todos',buscarCarros)
 
 //Ruta para buscar la info de 1 solo carro
-rutas.get('/IS/V1/carros/:id',buscarCarro)
+rutas.get('/IS/V1/carros/encontrar/:id',buscarCarro)
 
 //Ruta para ingresar(insertar) 1 carro
-rutas.post('/IS/V1/carros/',ingresarCarro)
+rutas.post('/IS/V1/carros/guardar',ingresarCarro)
 
 //Ruta para sacar(editar) 1 carro
-rutas.put('/IS/V1/carros/:id',retirarCarro)
+rutas.put('/IS/V1/carros/salir/:id',retirarCarro)
 
 
 module.exports=rutas
